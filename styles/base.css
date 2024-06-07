@@ -1,12 +1,20 @@
-
-
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 body {
-    font-family: Arial, sans-serif;
+    font-family: PT Serif, Arial, sans-serif;
     background-color: #f0f0f0;
     margin: 0;
     padding: 20px;
+    font-family: source sans 3, Arial, Helvetica, sans-serif;
 }
-
+footer {
+    position: relative;
+    display: flex;
+    top: 10px;
+}
+footer p {
+    margin: 0 auto;
+    padding: 50px 50px 0 50px;
+}
 .container {
     max-width: 800px;
     margin: auto;
@@ -41,7 +49,17 @@ h1 {
     border: 1px solid #ddd;
     border-radius: 8px;
 }
-
+.ratings-list li p {
+    font-family: Radio Canada Big, Arial, Helvetica, sans-serif;
+    margin: 20px auto;
+}
+/* .ratings-list li button {
+    background: none;
+    border: none;
+    color: red;
+    font-size: 1.2em;
+    cursor: pointer;
+} */
 .main-content {
     flex: 1;
 }
@@ -87,7 +105,9 @@ form button:hover {
     text-align: center;
     border-radius: 8px;
 }
-
+#rate-box, #rate-btn {
+    padding: 5px;
+}   
 .movie img {
     max-width: 100%;
     border-radius: 8px;

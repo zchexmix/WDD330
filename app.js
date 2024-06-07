@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const movieResults = document.getElementById('movieResults');
     const ratingsList = document.getElementById('ratingsList');
 
-    const apiKey = '47d49e76'; // Replace with your OMDB API key
+    const apiKey = '47d49e76';
     const apiUrl = 'https://www.omdbapi.com/';
     let ratings = JSON.parse(localStorage.getItem('movieRatings')) || [];
 
@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <img src="${movie.Poster}" alt="${movie.Title}">
                 <h3>${movie.Title}</h3>
                 <p>${movie.Year}</p>
-                <input type="number" min="1" max="5" placeholder="Rate 1-5" class="ratingInput">
-                <button onclick="rateMovie('${movie.imdbID}', '${movie.Title}')">Rate</button>
+                <input id="rate-box" type="number" min="1" max="5" placeholder="1" class="ratingInput">
+                <button id="rate-btn" onclick="rateMovie('${movie.imdbID}', '${movie.Title}')">Rate</button>
             </div>
         `).join('');
     }
@@ -59,15 +59,24 @@ document.addEventListener('DOMContentLoaded', () => {
         displayRatings();
     }
 
+    window.removeRating = index => {
+        ratings.splice(index, 1);
+        localStorage.setItem('movieRatings', JSON.stringify(ratings));
+        displayRatings();
+    }
+
+
     function displayRatings() {
-        ratingsList.innerHTML = ratings.map(rating => `
+        ratingsList.innerHTML = ratings.map((rating, index) => `
             <li>
                 <p>${rating.title}</p>
                 <p>Rating: ${rating.rating}</p>
+                <button onclick="removeRating('${index}')">❌</button>
             </li>
         `).join('');
     }
-
+    
+    
     
     displayRatings();
 });
