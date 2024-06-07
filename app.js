@@ -1,4 +1,3 @@
-// app.js
 document.addEventListener('DOMContentLoaded', () => {
     const movieForm = document.getElementById('movieForm');
     const movieInput = document.getElementById('movieInput');
@@ -69,6 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
         `).join('');
     }
 
-    // Initial load
+    
     displayRatings();
 });
